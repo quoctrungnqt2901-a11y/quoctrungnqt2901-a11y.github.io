@@ -1,0 +1,40 @@
+from random import randint
+player = input('chọn một trong ba : kéo búa bao :...')
+computer = randint(1,3)
+print(f'bạn chọn:{player}')
+print(f"máy tính chọn :{computer}")
+
+if player == 'kéo':
+    if computer == 1:
+        print(' máy tính chọn kéo')
+        print(' hòa')
+    elif computer == 2:
+        print('máy tính chọn búa')
+        print(' bạn thua ')
+    else :
+        print('máy tính chọn bao')
+        print('bạn thắng')
+
+if player == 'búa':
+    if computer == 1:
+        print(' máy tính chọn kéo')
+        print(' bạn thắng')
+    elif computer == 2:
+        print('máy tính chọn búa')
+        print(' hòa ')
+    else :
+        print('máy tính chọn bao')
+        print('bạn thua')
+
+if player == 'bao':
+    if computer == 1:
+        print(' máy tính chọn kéo')
+        print(' bạn thua')
+    elif computer == 2:
+        print('máy tính chọn búa')
+        print(' bạn thắng')
+    else:
+        print('máy tính chọn bao')
+        print('bạn thua')
+else:
+    print('bạn đã nhập sai >3')

@@ -1,0 +1,63 @@
+#vẽ Biểu đồ Phân tán (Scatter Plot)
+import matplotlib.pyplot as plt
+import seaborn as sns
+import pandas as pd
+iris_df = sns.load_dataset('iris')
+plt.figure(figsize=(8,6))
+sns.scatterplot(data=iris_df,x='petal_length',y='petal_width',hue='species',style='species',s=70)
+plt.title('Mối quan hệ giữa chiều dài và chiều rộng của cánh hoa hoa', fontsize=14, fontweight='bold')
+plt.xlabel('Chiều dài cánh hóa-petal_length(cm)',fontsize=12)
+plt.ylabel('chiều rộng cánh hoa - petal width(cm)',fontsize=12)
+plt.grid(True, linestyle='--', alpha=0.6)
+plt.legend(title='Loài hoa')
+plt.show()
+
+#vẽ Biểu đồ Cột (Bar Chart)
+import matplotlib.pyplot as plt
+import seaborn as sns
+titanic_df = sns.load_dataset('titanic')
+plt.figure(figsize=(8,6))
+sns.countplot(data=titanic_df,x='pclass',hue='survived')
+plt.title('so sánh số lượng hành khách sống sót và tử vong, phân chia theo hạng vé',fontsize=14,fontweight='bold')
+plt.xlabel('Hạng vé (Pclass)')
+plt.ylabel('Số lượng')
+plt.legend(title='Sống sót', labels=['Không (0)', 'Có (1)'])
+plt.show()
+
+#vẽ Biểu đồ Tần số (Histogram)
+import seaborn as sns
+import matplotlib.pyplot as plt
+titanic = sns.load_dataset('titanic')
+plt.figure(figsize=(8, 5))
+sns.histplot(data=titanic, x='age', bins=20, kde=True, color='skyblue', edgecolor='black')
+plt.title('4. Biểu đồ Tần số (Histogram): Phân phối độ tuổi hành khách Titanic', fontsize=12, fontweight='bold')
+plt.xlabel('Độ tuổi (Age)')
+plt.ylabel('Tần số (Số lượng hành khách)')
+plt.grid(axis='y', linestyle='--', alpha=0.7)
+plt.show()
+
+#vẽ Biểu đồ Hộp (Box Plot)
+import seaborn as sns
+import matplotlib.pyplot as plt
+iris = sns.load_dataset('iris')
+plt.figure(figsize=(8, 5))
+sns.boxplot(data=iris, x='species', y='sepal_width', palette='Set2')
+plt.title('5. Biểu đồ Hộp (Box Plot): Độ rộng đài hoa (sepal_width) theo loài Iris', fontsize=12, fontweight='bold')
+plt.xlabel('Loài hoa (Species)')
+plt.ylabel('Độ rộng đài hoa (sepal_width)')
+plt.grid(axis='y', linestyle='--', alpha=0.7)
+plt.show()
+
+#vẽ 6 Biểu đồ Nhánh-Lá (Stem Plot / Stem-and-Leaf)
+import seaborn as sns
+import matplotlib.pyplot as plt
+iris = sns.load_dataset('iris')
+sepal_length_20 = iris['sepal_length'].head(20)
+plt.figure(figsize=(9, 4.5))
+plt.stem(sepal_length_20.index, sepal_length_20.values, linefmt='b-', markerfmt='bo', basefmt='r-')
+plt.title('6. Biểu đồ Nhánh-Lá (Stem Plot): 20 mẫu đầu tiên của chiều dài đài hoa (sepal_length)', fontsize=12, fontweight='bold')
+plt.xlabel('Chỉ số mẫu (Index 0-19)')
+plt.ylabel('Chiều dài đài hoa (sepal_length)')
+plt.xticks(range(0, 20))
+plt.grid(True, linestyle='--', alpha=0.5)
+plt.show()
